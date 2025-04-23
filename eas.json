@@ -1,0 +1,31 @@
+{
+  "cli": {
+    "version": ">= 15.0.10",
+    "appVersionSource": "remote"
+  },
+  "build": {
+    "development": {
+      "developmentClient": true,
+      "distribution": "internal",
+      "android": {
+        "workflow": "generic",
+        "gradleCommand": ":app:assembleDebug"
+      }
+    },
+    "preview": {
+      "distribution": "internal",
+      "android": {
+        "workflow": "generic"
+      }
+    },
+    "production": {
+      "autoIncrement": true,
+      "android": {
+        "workflow": "generic"
+      }
+    }
+  },
+  "submit": {
+    "production": {}
+  }
+}
