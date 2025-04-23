@@ -1,0 +1,70 @@
+{
+  "expo": {
+    "name": "GetOff",
+    "slug": "GetOff",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/images/GetOffIcon.png",
+    "scheme": "myapp",
+    "userInterfaceStyle": "automatic",
+    "ios": {
+      "supportsTablet": true,
+      "infoPlist": {
+        "UIBackgroundModes": [
+          "fetch",
+          "remote-notification"
+        ],
+        "NSUserNotificationsUsageDescription": "GetOff needs permission to send you reminders to stay productive.",
+        "ITSAppUsesNonExemptEncryption": false
+      },
+      "bundleIdentifier": "com.getoffapp"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/images/GetOffIcon.png",
+        "backgroundColor": "#ffffff"
+      },
+      "permissions": [
+        "VIBRATE",
+        "WAKE_LOCK",
+        "RECEIVE_BOOT_COMPLETED",
+        "USE_FULL_SCREEN_INTENT",
+        "POST_NOTIFICATIONS"
+      ],
+      "package": "com.getoffapp",
+      "devMenu": false
+    },
+    "plugins": [
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/images/welcome.png",
+          "resizeMode": "contain",
+          "backgroundColor": "#ffffff"
+        }
+      ],
+      "expo-notifications",
+      [
+        "expo-build-properties",
+        {
+          "android": {
+            "enableProguardInReleaseBuilds": true,
+            "extraProguardRules": "-keep class com.facebook.react.** { *; }",
+            "buildGradle": {
+              "config": "\nandroid {\n  defaultConfig {\n    missingDimensionStrategy \"store\", \"play\"\n  }\n}\n"
+            }
+          },
+          "ios": {
+            "flipper": false
+          }
+        }
+      ],
+      "expo-router"
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "a10d2696-4d5b-4ae5-9d56-7cabbcf68530"
+      }
+    }
+  }
+}
